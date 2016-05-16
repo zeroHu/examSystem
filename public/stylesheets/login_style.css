@@ -1,0 +1,17 @@
+body{
+	background: url(../images/login.jpg) no-repeat;
+	background-size: cover;
+}
+h1{text-align: center;}
+#login_cwu{width: 500px;height: 300px;border: 1px solid white;border-radius:5px;margin: 100px auto;background: #FDF5E6;opacity:0.8;}
+#login_cwu h2,h1{text-align: center;}
+#login_cwu .content{font-weight: bold;width:300px;position: absolute;left:50%;margin-left:-150px; }
+#login_cwu .content form#login{text-align: center;}
+#login_cwu .content input#login_id{margin-top: 15px;}
+#login_cwu .content input#login_classes{margin-bottom: 15px;}
+#login_cwu .content input#login_name{margin-bottom: 15px;margin-top: 15px;}
+#login_cwu .content #submit,.register{width: 100px;height: 30px;border-radius: 3px;border: 1px solid #000;}
+#login_cwu .content #submit{margin-top: 15px;position:relative;left:80px;}
+#login_cwu .content .register{position:relative;left:30px;top:-30px;}
+#login_cwu .content .forgot_password{color: black;text-decoration: none;font-size: 14px;position:relative;left:194px;margin-top:10px;}
+span.stuclasses{position: relative;}

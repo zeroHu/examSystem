@@ -1,0 +1,6 @@
+h1{padding:76px 200px;text-align: center;margin-top:-56px;background: url(/images/studentBanner.jpg) no-repeat;	background-size: cover;color:#666;font-size: 40px;}
+aside.stumess{width:20%;border: 1px solid #ccc;position: relative;border-radius: 5px ;padding: 10px;top: 38px;background: #E6E6FA;}
+aside.stumess span.stulayout{position:absolute;right:2px;}
+div.stuach{position:relative;top:-86px;float: right;width:70%;border:1px solid #ccc;border-radius: 5px;background: #E6E6FA;padding: 10px;}
+span.viewscores a{text-decoration: none;color: #000;}
+span.shijuankan,span.viewscores{cursor: pointer;margin-left: 10px;padding-top: 2px;}

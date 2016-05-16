@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/stylesheets/studexam.css">
+<h1>考试页面</h1>
+{{!-- <form action=""></form> --}}
+<input type="hidden" name="studentId" value="{{studentId}}">
+<input type="hidden" name="stuname" value="{{stuname}}">
+<input type="hidden" name="examId" value="{{examId}}">
+<input type="hidden" name="examtime" value="{{examtime}}">
+<input type="hidden" name="examname" value="{{examname}}">
+<div class="examstutime">
+	<label>本场试卷考试时间：</label><span>{{examtime}}</span>分钟<br>	
+	<div id="timer"style="color:red"></div>
+</div>
+{{#each stuexamstr}}
+	<div class="shiti">
+		<input type="hidden" name="ti_id" value="{{_id}}">
+		<span class="bihao"></span>
+		<span>{{title}}</span><label class="titype" >({{type}})</label><br>
+		<span>A:{{optionsA}}</span><br>
+		<span>B:{{optionsB}}</span><br>
+		<span>C:{{optionsC}}</span><br>
+		<span>D:{{optionsD}}</span><br>
+		<div class="youanswerdan">
+			<span>你的答案：</span>
+			<input type="radio" name="answerdan{{_id}}" value="A">A</input>
+			<input type="radio" name="answerdan{{_id}}" value="B">B</input>
+			<input type="radio" name="answerdan{{_id}}" value="C">C</input>
+			<input type="radio" name="answerdan{{_id}}" value="D">D</input>
+		</div>
+		<div class="youanswerduo">
+			<span>你的答案：</span>
+			<input type="checkbox" name="answerduo{{_id}}" id="" value="A">A	
+			<input type="checkbox" name="answerduo{{_id}}" id="" value="B">B			
+			<input type="checkbox" name="answerduo{{_id}}" id="" value="C">C			
+			<input type="checkbox" name="answerduo{{_id}}" id="" value="D">D
+		</div>
+	</div>
+{{/each}}
+<input type="button" value="提交试卷" class="upshijuan">
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/studexam.js"></script>
+

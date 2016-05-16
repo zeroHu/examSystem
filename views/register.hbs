@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/stylesheets/login_style.css">
+<script src="/javascripts/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 前端表单验证
+		var identity = 0;
+		$('input[name=identity]').change(function(){
+			$('span.stuclasses').show();
+			if($(this).val() == 1){
+				identity = 1;
+				$('span.stuclasses').hide();
+			}
+		});
+		// submit regist yanzheng
+		$('#submit').click(function(){
+			var id = $('input[name=id]').val(),
+				name = $('input[name=name]').val(),
+				password = $('input[name=password').val(),
+				classes = $('input[name=classes]').val();
+
+			if(id == ''){
+				alert('请输入ID号');
+				return false;
+			}
+			if(name == ''){
+				alert('请输入姓名');
+				return false;
+			}
+			if(identity == 0 && classes == ''){
+				alert('请输入班级');
+				return false;
+			}
+			if(password == ''){
+				alert('请输入密码');
+				return false;
+			}
+		})
+	});
+</script>
+<body>
+	<div id="login_cwu">
+		<h2>用户注册</h1>
+		<span style="float:right"><a href="/admin">返回管理员</a></span>
+		<div class="content">
+			<form method="post" id="login" name="login_exam">
+				<input type="radio" name="identity"  checked="checked" value="0">学生
+				<input type="radio" name="identity" value="1">老师<br>
+				<label>ID号：</label>
+					<input type="text" name="id" id="login_id"><br>
+				<label>姓名：</label>
+					<input type="text" name="name" id="login_name"><br>
+				<span class="stuclasses">
+					<label>班级：</label>
+					<input type="text" name="grades" id="login_grades" size='5'>级
+					<input type="text" name="classes" id="login_classes" size='5'>班<br>
+				</span>
+				<label>密码：</label>
+					<input type="password" name="password" id="login_password"><br>
+				<input type="submit" id="submit" value="提交注册">
+				</table>
+			</form>
+		</div>
+	</div>
+</body>

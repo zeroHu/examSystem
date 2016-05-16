@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/stylesheets/exam.css">
+<link rel="stylesheet" href="/stylesheets/test_style.css">
+<body>
+	<h1 class="examtitl">组成试卷模块</h1>
+	{{!-- {{title}} --}}
+	{{!-- 自动组卷模块 --}}
+	<span class="backteacher"><a href="/teacher" class="returnteacher">返回教师模块</a></span><br>
+	<div class="random">
+		<h3>自动组卷</h3>
+		<input class="objtype" type="hidden" value="{{urltxt}}"></input>
+		<form class='shoudform'>
+			<input type="hidden" name="teacherId" value="{{teacherId}}"></input>
+			<label>试卷名称：</label><input type="text" name="examtitle"></input><br>
+			<label>试题总数：</label><input type="text" name="shitinum" class="shitinum">题<br>
+			<label>难易程度：</label>
+			<input type="radio" name="testnanyi" value="简单" checked="checked">简单
+			<input type="radio" name="testnanyi" value="中级">中级
+			<input type="radio" name="testnanyi" value="稍难">稍难
+			<input type="radio" name="testnanyi" value="混合">混合
+			<br>
+			<label>考试时间：</label><input type="text" name="examtime" class="examtime">分钟
+			{{!-- 科目选择 --}}
+			<div class="objects">
+			</div>
+			<input class='tijuan' type="button" value="自动组卷">	
+		</form>
+	</div>
+	{{!-- 手动组卷模块 --}}
+	<div class="selbyyou">
+		<h3>手动组卷</h3>
+		<div class="csgc_content">
+			<label>试卷名称：</label><input type="text" name="examtitleshou"></input>
+			<br>
+			<label>考试时间 : </label><input type="text" name="examshoutime" size="10"></input>分钟
+			<div class="seobjects">
+			<span>请根据科目来选择试题：</span>
+			</div>
+			<table class="testtab" cellpadding="0" cellspacing="1"  style="width:800px;">
+				<thead>
+					<tr class="tsay" style="display:none;">
+						<th  style="width:50%;">题目</th>
+						<th style="width:10%;">题型</th>
+						<th style="width:10%;">难易程度</th>
+						<th style="width:10%;">答案</th>
+						{{!-- <th>时间</th> --}}
+						<th style="width:10%;">操作</th>
+					</tr>
+				</thead>
+				<tbody class="testbody">
+					{{#each testdoc}}
+					<tr style="display:none;">
+						
+						{{!-- <td>{{_id}}</td> --}}
+						<td style="width:50%;">{{title}} </td>
+						<td style="width:10%;">{{type}} </td>
+						<td style="width:10%">{{difficult}}</td>
+						<td style="width:10%">{{answer}}</td>
+						<input type="hidden" name="objct" value="{{object}}">
+						{{!-- <td>{{createTime}}</td> --}}
+						<td style="width:10%"><input type="checkbox" name="_id" value="{{_id}}"></input></td>
+					</tr>
+					{{/each}}
+				</tbody>
+				
+			</table>
+			
+			<div class="exampage">
+		    </div>
+		    <input class="examsd" type="button" value="手动组卷">
+		   	</div>
+	</div>
+</body>
+
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/exam.js"></script>
+{{!-- <script src="/javascripts/jquerypage.js"></script> --}}

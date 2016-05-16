@@ -1,0 +1,6 @@
+h1{text-align: center;}
+span.logtout{float: right;}
+.adminleft,.adminright{margin-top: 10px;}
+.adminleft{width: 20%;float: left;}
+.adminright{width: 70%;float: right;}
+.adminright td.addclass{cursor: pointer;}

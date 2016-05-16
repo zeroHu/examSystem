@@ -1,0 +1,13 @@
+*{padding:0;margin:0;}
+h1.examtitl{text-align: center;color: #666;}
+span.backteacher{margin-bottom: 20px;}
+.returnteacher{color: red;float: right;text-decoration: none;}
+div.random{float:left;border: 1px solid #ccc;border-radius:5px;padding: 20px;background: #EEE8CD;}
+div.selbyyou{background:#EEE8CD;width:70%;float: right;border:1px solid #ccc;position: relative;padding: 20px;border-radius:5px;}
+input.tijuan,input.examsd{width: 100px;height: 30px;background: #ccc;border-radius: 5px;border:1px solid #762d1e;}
+input.shitinum{width: 40px;margin-top: 10px;}
+input.examtime{width: 40px;}
+input[type='radio']{margin-top: 10px;margin-bottom: 10px;}
+div.exampage{margin-top: 20px;margin-bottom: 20px;}
+span.examp{cursor:pointer;padding: 5px 10px;margin:100px 10px 50px 0px;background: #df9e91;}
+table.testtab{margin-top: 20px;}

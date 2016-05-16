@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>教师模块</title>
+	<link rel="stylesheet" href="/stylesheets/teacher_model_style.css">
+	<link rel="stylesheet" href="/stylesheets/test_style.css">
+</head>
+<body>
+	<div class="teacher_title">
+		<h1>教师管理模块</h1>
+	</div>
+	{{!-- 左侧 --}}
+	<aside class="left">
+		<div class="message">
+			<span class="identity">身份：</span>
+			<span class="identity_name">教师</span>
+			<span class='logtout'><a href="/logout">退出</a></span>
+		</div>
+		{{!-- {{#each doc}} --}}
+			<label>教师姓名：</label><span>{{user.name}}</span><br>
+			{{!-- <span>{{user._id}}</span> --}}
+			<label>教师所授科目：</label><span>{{user.objId}}</span>
+			<input type="hidden" value="{{user.objId}}" class="objname"></input>
+		{{!-- {{/each}} --}}
+
+		<div class="exam_function">
+			<span class='shitig'>试题管理</span><br>
+			<span class='chengjg'>成绩管理</span>
+		</div>
+	</aside>
+	{{!-- 试题管理模块 --}}
+	<aside class="right">
+		<div class="shijuan">
+			<div class="four_zsgc">
+				<span class='viewtest'>查看试题</span>
+				<span class='addtest'>增加试题</span>
+				{{!-- {{#each doc}} --}}
+				<span class='makeexam'><a href="exam">组成试卷</a></span>
+				{{!-- {{/each}} --}}
+				<span class="viewexam">查看试卷</span>
+				{{!-- <span>删除试题</span> --}}
+				{{!-- <span>修改试题</span> --}}
+
+			</div>
+			{{!-- 增加题目部分 --}}
+			<div class="zsgc_content">
+				<form action="/testreg" method="post" name="testform">
+					<div class="z_content">
+						<span class="tixing">
+							<label>题型：</label>
+							<input type="radio" name="tistyle" value="单选" checked="checked">单选
+							<input type="radio" name="tistyle" value="多选">多选
+							{{!-- <input type="radio" name="tistyle" value="判断">判断	 --}}
+						</span>
+
+						{{!-- <span class="ticon"> --}}
+							<br><label>试题内容：</label>
+							<textarea class="cotent" name="content" cols="50" rows="3"></textarea>
+						{{!-- </span> --}}
+						{{!-- 选择内容 --}}
+						<span class="secon">
+							<br><label>答案A：</label>
+							<input type="text" class="select_a" name='select_a' size="50"></input>
+							<br><label>答案B：</label>
+							<input type="text" class="select_b" name='select_b' size="50"></input>
+							<br><label>答案C：</label>
+							<input type="text" class="select_c" name='select_c' size="50"></input>
+							<br><label>答案D：</label>
+							<input type="text" class="select_d" name='select_d' size="50"></input>
+						</span>
+
+						<br><label>正确答案：</label>
+						{{!-- 单选模块 --}}
+						<div class="radod">
+							<input class="rad" ="rad" name="danxuan" type="radio" value="A" checked="checked" />A
+							<input class="rad" name="danxuan" type="radio" value="B"/>B
+							<input class="rad" ="rad" name="danxuan" type="radio" value="C"/>C
+							<input class="rad" ="rad" name="danxuan" type="radio" value="D"/>D
+						</div>
+						{{!-- 判断模块 --}}
+						{{!-- <div class="istrue">
+							<select name="radioistrue" id="radioistrue">
+								<option value="0" checked="checked">对</option>
+								<option value="1">错</option>
+							</select>
+						</div>
+	 					--}}
+	 					{{!-- 多选模块 --}}
+						<div class="duoselct">
+							<label><input type="checkbox" name="duoxuan" value="A" checked="checked" />A</label>
+							<label><input type="checkbox" name="duoxuan" value="B"/>B</label>
+							<label><input type="checkbox" name="duoxuan" value="C"/>C</label>
+							<label><input type="checkbox" name="duoxuan" value="D"/>D</label>
+						</div>
+
+						<br><label>分值：</label>
+						<input type="text" class="scores" name='scores' size="5"  value="2"></input>
+						<br><label>难易程度：</label>
+						<input type="radio" name="nanyi" checked="checked" value="简单">简单
+						<input type="radio" name="nanyi" value="中级">中级
+						<input type="radio" name="nanyi" value="稍难">稍难
+					</div>
+					<div class="search">
+						<label>科目：</label>
+						<select name="object" id="object">
+						</select>
+					</div>
+					<input type="button" class="up" value="提交" style="width:100px;height:50px;">
+					<input type="reset" value="重置" name="reset" >
+				</form>
+			</div>
+			{{!-- 查看题目 --}}
+			<div class="csgc_content">
+				<table class="testtab newslist" cellpadding="0" cellspacing="1">
+					<thead>
+						<tr class="tsay">
+							<th>科目</th>
+							<th>题型</th>
+							<th>题目</th>
+							<th>答案</th>
+							<th>时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{!-- {{#each demo}}
+						<tr>
+							<td>{{_id}}</td>
+							<td>{{uid}} </td>
+							<td>{{title}} </td>
+							<td>{{content }}</td>
+							<td>{{createTime}}</td>
+							<td><a href="del?id={{_id}}">Delete</a> | <a href="modify?id={{_id}}">Update</a></td>
+						</tr>
+						{{/each}} --}}
+					</tbody>
+
+				</table>
+				<div class="pagefenye">
+
+				</div>
+			</div>
+			{{!-- 查看试卷 --}}
+			<div class="ssgc_content">
+				<table class="examview" cellpadding="0" cellspacing="1">
+					<thead>
+						<tr class="tsay">
+							<th>出卷人ID</th>
+							<th>科目</th>
+							<th>试卷名称</th>
+							<th>题目数量</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="ssbody">
+						{{!-- {{#each demo}}
+						<tr>
+							<td>{{_id}}</td>
+							<td>{{uid}} </td>
+							<td>{{title}} </td>
+							<td>{{content }}</td>
+							<td>{{createTime}}</td>
+							<td><a href="del?id={{_id}}">Delete</a> | <a href="modify?id={{_id}}">Update</a></td>
+						</tr>
+						{{/each}} --}}
+					</tbody>	
+				</table>
+			</div>
+
+		</div>
+		<div class="chengji"></div>
+	</aside>
+	{{!-- 成绩管理模块 --}}
+	<aside class="rightsoce" style="display:none;">
+		<div class="examtitle">
+			<span>请选择试卷名称：</span><br>
+			<span class="exam"></span>
+			<table class="stuscoress">
+				<thead class="stuscorehead">
+					<th>学号</th>
+					<th>姓名</th>
+					<th>最后得分</th>
+					<th>详细情况</th>
+				</thead>
+				<tbody class="stuscorebo">
+
+				</tbody>
+			</table>
+		</div>
+	</aside>
+	{{!-- 学生成绩详情 --}}
+	<aside class='stuhistroy' style="display:none;">
+		<span>具体学生答题情况：(学生答案，是否正确 0错误 1正确）</span>
+		<table>
+			<thead style="display:none;">
+				<tr>
+
+				</tr>
+				
+			</thead>
+			<tbody class="cont">
+
+			</tbody>
+		</table>
+
+	</aside>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/teacher.js"></script>
+	<script src="/javascripts/test.js"></script>
+</body>
+</html>

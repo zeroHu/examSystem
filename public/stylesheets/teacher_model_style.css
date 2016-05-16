@@ -1,0 +1,29 @@
+a{text-decoration:none;}
+.makeexam a{color:#000;}
+div.teacher_title{margin-top:-75px;height:200px;text-align: center;background: url(../images/teacherBanner.jpg);color:#ccc;opacity: 0.8;}
+div.teacher_title h1{padding-top: 70px;font-size: 40px;}
+aside.left,aside.right,aside.rightsoce{margin-top: 50px;background: #FFFACD}
+aside.left{width: 15%;float: left;border: 1px solid #ccc;border-radius:5px;padding: 30px 20px;line-height: 25px;}
+aside.left .message{border-bottom: 2px solid #ccc;}
+aside.right{width: 75%;float: right;border: 1px solid #ccc;border-radius:5px;padding: 20px 10px;}
+aside.right .four_zsgc span{margin-left:20px;border: 1px solid #ccc;padding: 2px 3px;border-radius: 2px;cursor: pointer;}
+aside.right div.z_content label,input{margin:10px 0px;}
+aside.right div.z_content div.radod,input.duoselct input{margin-right: 8px;}
+/*添加题目模块*/
+aside.right div.zsgc_content{border: 3px solid red;border-radius: 10px;margin: 10px 20px;padding: 10px;display: none;}
+input.up{width: 40px;color:red;}
+/*input.shitinum{width: 40px;margin-top: 10px;}*/
+
+/*查看题目模块*/
+aside.right div.csgc_content{border: 3px solid red;border-radius: 10px;padding: 10px;margin: 10px 20px;}
+/*查看试卷模块*/
+aside.right div.ssgc_content{border: 3px solid red;border-radius: 10px;padding: 10px;margin: 10px 20px;display: none;}
+/*aside.right{background: #ccc;}*/
+aside.rightsoce{width: 70%;padding:10px;border:1px solid #ccc;float: right;border-radius: 5px;}
+span.shitig,span.chengjg{cursor: pointer;margin-left: 10px;}
+span.logtout{margin-left:30px;}
+aside.rightsoce span.examshiti{cursor:pointer;margin-right: 20px;display: inline-block;}
+aside.stuhistroy{background:#EED5D2;padding:10px;margin-top:20px;float: right;
+	width: 98%;position: relative;border-radius: 5px;border:1px solid #ccc;}
+span.examshiti{margin-bottom:5px;border: 1px solid #D2691E;padding:1px;border-radius: 3px;}
+span.logtout a{margin-left: 35px;}

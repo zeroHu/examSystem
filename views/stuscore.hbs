@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/stylesheets/test_style.css">
+<body>
+	<h1>成绩查询详情页</h1>
+	<span class="returnstudent" style="float:right;position:relative;top:-10px;"><a href="/student">返回学生页</a></span>
+
+	<div class="score">
+		<input type="hidden" value="{{userId}}">
+		<table>
+			<thead>
+				<th>试卷名称</th>
+				<th>最后得分</th>
+				<th>考试时间</th>
+				<th>试卷详情</th>
+			</thead>
+			<tbody>
+				{{#each scorearr}}
+					<tr>
+						<input class="examid" type="hidden" value="{{examId}}">
+						<input class="_id" type="hidden" class="id" value="{{_id}}">
+						<td>{{examtitl}}</td>
+						<td>{{final}}</td>
+						<td>{{time}}</td>
+						<td class="detailfor">详情分析</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+	<div class="stuhis">
+		<span>试卷答题详情(0表示错误，1表示正确)</span>
+		<table class="studetail">
+			<thead>
+				
+			</thead>
+			<tbody>
+				<tr></tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+<script src="/javascripts/jquery.min.js"></script>
+<script>
+//  给不同的添加上标签
+$('td.detailfor').each(function(i,v){
+	$(this).attr('index',i);
+});
+$('td.detailfor').click(function(){
+	$.get('/stuhistory',{
+		examId : $(this).siblings('.examid').val(),
+		index : $(this).attr('index'),
+		_id : $(this).siblings('._id').val(),
+	},function(data){
+		if(data.errcode == 1){
+			// console.log(data.misdata)
+			var stuarrmis = data.misdata;
+			var studeatastr = '';
+			var stuheadstr = '';
+			for(var i=0;i<stuarrmis.length;i++){
+				stuheadstr +='<th>第'+(parseInt(i)+1)+'道</th>';
+				// console.log(stuarrmis[i].isTrue);
+				studeatastr +='<td>'+stuarrmis[i].isTrue+'</td>';
+			}
+			$('table.studetail thead').html('');
+			$('table.studetail tbody tr').html('');
+			$('table.studetail thead').append(stuheadstr);
+			$('table.studetail tbody tr').append(studeatastr);
+		}else{
+			alert('页面报错');
+		}
+	});
+})	
+</script>

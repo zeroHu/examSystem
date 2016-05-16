@@ -1,0 +1,50 @@
+ <link rel="stylesheet" href="/stylesheets/student_style.css">
+ <link rel="stylesheet" href="/stylesheets/test_style.css">
+ <title>学生模块</title>
+ <body>
+ 	<h1>学生模块</h1>
+	<aside class="stumess">
+		<div class="mess">
+			<span class="identity">身份：</span>
+			<span class="identity_name">学生</span>
+			<span class='stulayout'><a href="/logout">退出</a></span>
+		</div>
+		<hr>
+		{{!-- {{#each doc}} --}}
+			<label>学生ID号：</label><span class="studentname">{{username}}</span><br>
+			<label>学生姓名：</label><span class="studentId">{{userId}}</span>
+			{{!-- <span>{{objId}}</span> --}}
+			<input type="hidden" value="{{user_id}}" class="objname"></input>
+		{{!-- {{/each}} --}}
+
+		<div class="exam_function">
+			<span class="shijuankan">试卷查看</span><br>
+			<span class='viewscores'><a href="/viewscores">成绩查看</a></span>
+		</div>
+	</aside>
+	<div class="stuach">
+		<input type="hidden" name="classess" value="{{classess}}">
+		<input type="hidden" name="gradess" value="{{gradess}}">
+		<span class="textobj">
+			分类查看考试科目：
+		</span><br>
+		<span class='selobj'>
+			{{#each objdoc}}
+				<input type="radio" name="obj" value="{{title}}">{{title}}</input>
+			{{/each}}
+		</span>
+		<table class='stuexam'>
+			<thead>
+				<th>教师ID</th>
+				<th>试卷名称</th>
+				<th>试卷总分</th>
+				<th>操作</th>
+			</thead>
+			<tbody class="stubody">
+
+			</tbody>
+		</table>
+	</div>
+ </body>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/student.js"></script>

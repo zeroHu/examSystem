@@ -1,0 +1,17 @@
+<style type="text/css">
+table { border:1px solid green;}
+table thead tr th{ border:1px solid green;}
+table tbody tr td{ border:1px solid green;}
+</style>
+<h1>科目表</h1>
+{{!-- <span>teachers id</span><br> --}}
+<span class="userId" style="display:none;">{{userId}}</span>
+<span>教师添加科目</span>
+<br>
+{{#each doc}}
+<input type="checkbox" value="{{_id}}" title="{{title}}">{{title}}
+{{/each}}
+<br>
+<span class="obj" value="add" keysuser="{{../userId}}" style="padding:3px 10px;border:1px solid #ccc;background:#ccc;margin-top:10px;display:inline-block;cursor:pointer;">添加科目</span>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/obj.js"></script>

@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/stylesheets/login_style.css">
+<div id="login_cwu">
+	<h1>中华女子学院考试系统登录</h1>
+	<div class="content">
+		<form method="post" id="login" name="login_exam" onsubmit="return check()">
+			<input type="radio" name="identity" checked="checked" value="0">学生
+			<input type="radio" name="identity" value="1">老师<br>
+			<label>ID号：</label>
+				<input type="text" name="id" id="login_id"><br>
+			<label>姓名：</label>
+				<input type="text" name="name" id="login_name"><br>
+			<label>密码：</label>
+				<input type="password" name="password" id="login_password"><br>
+			<input type="submit" id="submit" value="登录">
+			</table>
+		</form>
+		{{!-- <a href="register"><button class="register">注册</button></a> --}}
+		<a href="uppassword" class="forgot_password">忘记密码？</a>
+	</div>
+</div>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/login.js"></script>

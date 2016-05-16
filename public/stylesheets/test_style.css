@@ -1,0 +1,10 @@
+/*table{border: 1px solid #ccc;}*/
+/*table { border:1px solid green;padding:4px 8px;}*/
+h1{text-align: center;}
+table{border-collapse: collapse;border: none;}
+table thead tr th{ border:1px solid green;padding:4px 8px;}
+table tbody tr td{ border:1px solid green;text-align: left;padding:2px 4px;}
+div.pagefenye{margin-top:30px;}
+span.testspan{border: 1px solid #666;padding: 3px 5px;margin-right:5px;cursor:pointer;}
+td.detail,td.detailfor{cursor: pointer;}
+.stuhis{border:1px solid #333;border-radius: 5px;margin-top:50px; }

@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="/stylesheets/admin.css">
+<link rel="stylesheet" href="/stylesheets/test_style.css">
+<body>
+	<h1>管理员界面</h1>
+	<span class='logtout'><a href="/logout">退出</a></span>
+	<div class="adminleft">
+		<span><a href="/insertobj">科目管理</a></span><br>
+		<span><a href="/register">用户注册管理</a></span>
+	</div>
+	<div class="adminright">
+		<span class="adminexam" style="cursor:pointer;background:#ccc;border:1px solid 666;border-radius:5px;padding:5px 10px;display:inline-block;margin-bottom:10px;">分配试卷操作</span>
+		<table class="examadmin">
+			<thead>
+				<tr class="tsay">
+					<th>出卷人ID</th>
+					<th>科目</th>
+					<th>试卷名称</th>
+					<th>题目数量</th>
+					<th>年级</th>
+					<th>班级</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script>
+		(function($){
+			$('span.adminexam').click(function(){
+				gettestlist();
+			});
+			// 请求试卷方法
+			function gettestlist(){
+				$.get('/finexams',function(data){
+					$('table.examadmin tbody').html('');
+					if(data.status == '200'){
+						// console.log(data.examdoc);
+						var examarr = data.examdoc;
+						var trstr = '';
+						for(var i=0; i<examarr.length; i++){
+							trstr += '<tr><input type="hidden" name="exam_id" value="'+examarr[i]._id+'" /><td>'+examarr[i].teacherId+'</td><td>'+examarr[i].object+'</td><td>'+examarr[i].title+'</td><td>'+examarr[i].content.length+'</td><td><input type="text" name="grades" size="3" value="'+examarr[i].grades+'"/></td><td><input type="text"  name ="classess" size="3" value="'+examarr[i].classes+'"/></td><td class="addclass">分配班级</td></tr>';
+							// console.log("trstr",trstr);
+						}
+						// console.log("ssbody",trstr);
+						$('table.examadmin tbody').append(trstr);
+						$('td.addclass').click(function(){
+							var exam_id = $(this).siblings('input[name=exam_id]').val(),
+							       grades   =    $(this).siblings('td').find('input[name=grades]').val() ,
+							       classess   =   $(this).siblings('td').find('input[name=classess]').val() ;
+							console.log('*****************',exam_id,grades,classess);
+							$.get('/assigned',{
+								grades : grades,
+								classess : classess,
+								exam_id : exam_id
+							},function(data){
+								alert(data.errmsg);
+								// if(data.err)
+							});
+						});
+					}else{
+						alert('查询试卷失败');
+					}
+				});
+			}
+		})(jQuery);
+	</script>
+</body>

@@ -1,0 +1,6 @@
+h1{text-align: center;}
+div.shiti {margin-bottom: 20px;padding: 20px;}
+div.youanswerdan,div.youanswerduo{margin-top: 10px;}
+div.youanswerdan span,div.youanswerduo span{font-weight: bold;font-size: 16px;}
+input.upshijuan{width: 100px;height: 40px;border-radius: 5px;background: #ccc;}
+div.examstutime{float: right;width: 400px;top:-20px;position: relative;}
