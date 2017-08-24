@@ -10,13 +10,9 @@
 			<span class='stulayout'><a href="/logout">退出</a></span>
 		</div>
 		<hr>
-		{{!-- {{#each doc}} --}}
-			<label>学生ID号：</label><span class="studentname">{{username}}</span><br>
-			<label>学生姓名：</label><span class="studentId">{{userId}}</span>
-			{{!-- <span>{{objId}}</span> --}}
-			<input type="hidden" value="{{user_id}}" class="objname"></input>
-		{{!-- {{/each}} --}}
-
+		<label>学生ID号：</label><span class="studentname">{{username}}</span><br>
+		<label>学生姓名：</label><span class="studentId">{{userId}}</span>
+		<input type="hidden" value="{{user_id}}" class="objname"></input>
 		<div class="exam_function">
 			<span class="shijuankan">试卷查看</span><br>
 			<span class='viewscores'><a href="/viewscores">成绩查看</a></span>

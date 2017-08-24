@@ -53,13 +53,11 @@ $('td.detailfor').click(function(){
 		_id : $(this).siblings('._id').val(),
 	},function(data){
 		if(data.errcode == 1){
-			// console.log(data.misdata)
 			var stuarrmis = data.misdata;
 			var studeatastr = '';
 			var stuheadstr = '';
 			for(var i=0;i<stuarrmis.length;i++){
 				stuheadstr +='<th>第'+(parseInt(i)+1)+'道</th>';
-				// console.log(stuarrmis[i].isTrue);
 				studeatastr +='<td>'+stuarrmis[i].isTrue+'</td>';
 			}
 			$('table.studetail thead').html('');

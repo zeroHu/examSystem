@@ -36,27 +36,22 @@
 				$.get('/finexams',function(data){
 					$('table.examadmin tbody').html('');
 					if(data.status == '200'){
-						// console.log(data.examdoc);
-						var examarr = data.examdoc;
-						var trstr = '';
+						var examarr = data.examdoc,
+							trstr = '';
 						for(var i=0; i<examarr.length; i++){
 							trstr += '<tr><input type="hidden" name="exam_id" value="'+examarr[i]._id+'" /><td>'+examarr[i].teacherId+'</td><td>'+examarr[i].object+'</td><td>'+examarr[i].title+'</td><td>'+examarr[i].content.length+'</td><td><input type="text" name="grades" size="3" value="'+examarr[i].grades+'"/></td><td><input type="text"  name ="classess" size="3" value="'+examarr[i].classes+'"/></td><td class="addclass">分配班级</td></tr>';
-							// console.log("trstr",trstr);
 						}
-						// console.log("ssbody",trstr);
 						$('table.examadmin tbody').append(trstr);
 						$('td.addclass').click(function(){
 							var exam_id = $(this).siblings('input[name=exam_id]').val(),
-							       grades   =    $(this).siblings('td').find('input[name=grades]').val() ,
-							       classess   =   $(this).siblings('td').find('input[name=classess]').val() ;
-							console.log('*****************',exam_id,grades,classess);
+							    grades = $(this).siblings('td').find('input[name=grades]').val() ,
+							    classess = $(this).siblings('td').find('input[name=classess]').val() ;
 							$.get('/assigned',{
 								grades : grades,
 								classess : classess,
 								exam_id : exam_id
 							},function(data){
 								alert(data.errmsg);
-								// if(data.err)
 							});
 						});
 					}else{

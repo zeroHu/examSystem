@@ -35,13 +35,8 @@
 			<div class="four_zsgc">
 				<span class='viewtest'>查看试题</span>
 				<span class='addtest'>增加试题</span>
-				{{!-- {{#each doc}} --}}
 				<span class='makeexam'><a href="exam">组成试卷</a></span>
-				{{!-- {{/each}} --}}
 				<span class="viewexam">查看试卷</span>
-				{{!-- <span>删除试题</span> --}}
-				{{!-- <span>修改试题</span> --}}
-
 			</div>
 			{{!-- 增加题目部分 --}}
 			<div class="zsgc_content">
@@ -51,13 +46,10 @@
 							<label>题型：</label>
 							<input type="radio" name="tistyle" value="单选" checked="checked">单选
 							<input type="radio" name="tistyle" value="多选">多选
-							{{!-- <input type="radio" name="tistyle" value="判断">判断	 --}}
 						</span>
-
-						{{!-- <span class="ticon"> --}}
-							<br><label>试题内容：</label>
-							<textarea class="cotent" name="content" cols="50" rows="3"></textarea>
-						{{!-- </span> --}}
+						<br>
+						<label>试题内容：</label>
+						<textarea class="cotent" name="content" cols="50" rows="3"></textarea>
 						{{!-- 选择内容 --}}
 						<span class="secon">
 							<br><label>答案A：</label>
@@ -78,14 +70,6 @@
 							<input class="rad" ="rad" name="danxuan" type="radio" value="C"/>C
 							<input class="rad" ="rad" name="danxuan" type="radio" value="D"/>D
 						</div>
-						{{!-- 判断模块 --}}
-						{{!-- <div class="istrue">
-							<select name="radioistrue" id="radioistrue">
-								<option value="0" checked="checked">对</option>
-								<option value="1">错</option>
-							</select>
-						</div>
-	 					--}}
 	 					{{!-- 多选模块 --}}
 						<div class="duoselct">
 							<label><input type="checkbox" name="duoxuan" value="A" checked="checked" />A</label>
@@ -123,22 +107,8 @@
 							<th>操作</th>
 						</tr>
 					</thead>
-					<tbody>
-						{{!-- {{#each demo}}
-						<tr>
-							<td>{{_id}}</td>
-							<td>{{uid}} </td>
-							<td>{{title}} </td>
-							<td>{{content }}</td>
-							<td>{{createTime}}</td>
-							<td><a href="del?id={{_id}}">Delete</a> | <a href="modify?id={{_id}}">Update</a></td>
-						</tr>
-						{{/each}} --}}
-					</tbody>
-
 				</table>
 				<div class="pagefenye">
-
 				</div>
 			</div>
 			{{!-- 查看试卷 --}}
