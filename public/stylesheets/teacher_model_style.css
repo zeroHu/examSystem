@@ -12,8 +12,6 @@ aside.right div.z_content div.radod,input.duoselct input{margin-right: 8px;}
 /*添加题目模块*/
 aside.right div.zsgc_content{border: 3px solid red;border-radius: 10px;margin: 10px 20px;padding: 10px;display: none;}
 input.up{width: 40px;color:red;}
-/*input.shitinum{width: 40px;margin-top: 10px;}*/
-
 /*查看题目模块*/
 aside.right div.csgc_content{border: 3px solid red;border-radius: 10px;padding: 10px;margin: 10px 20px;}
 /*查看试卷模块*/

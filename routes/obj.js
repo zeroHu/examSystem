@@ -12,7 +12,6 @@ exports.insertobj = function(req, res) {
             res.send('<script>alert("it is failed")</script>')
             return;
         }
-        console.log('qqqqqqqqq', objs);
         res.render('insert', {
             objs: objs
         });
@@ -30,21 +29,10 @@ exports.saveobj = function(req, res) {
                 res.send('add objs failed');
                 return;
             }
-            // res.send('<script>alert("objs is success")</script>')
         });
     });
     res.send('objs successed');
-    /*var objs = new Obj({
-    	title:oobj
-    });*/
-    /*objs.save(function(err,objs){
-    	if(err){
-    		res.send('add objs failed');
-    		return;
-    	}
-    	res.send('<script>alert("objs is success")</script>')
-    })*/
-}
+};
 exports.getobj = function(req, res) {
     if ((!req.session.userId) || (req.session.identity != 'teacher')) {
         res.redirect('/login');
@@ -52,7 +40,6 @@ exports.getobj = function(req, res) {
     }
     var userId = req.session.userId;
     var objId = req.session.user.objId;
-    console.log(req.session);
     Obj.find(function(err, docs) {
         res.render('obj', {
             'doc': docs,
@@ -63,8 +50,6 @@ exports.getobj = function(req, res) {
 exports.chooseojb = function(req, res) {
     var objctId = req.body.objId;
     usersId = req.body.userId;
-    // var uId = usersId.substring(usersId.indexOf('='),end);
-    // var a = usersId.replace(/[^0-9]/ig,""); 
     User.update({ _id: usersId }, { $set: { objId: objctId } }, function(err, doc) {
         if (err) {
             console.log('老师选择科目报错');
@@ -74,7 +59,5 @@ exports.chooseojb = function(req, res) {
             status: 200,
             doc: doc
         });
-        // res.redirect('/');
-        //res.render('teacher',{"doc":doc});
     });
 };

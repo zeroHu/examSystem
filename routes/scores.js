@@ -48,7 +48,6 @@ exports.viewscores = function(req, res) {
                 scorearr[j].time = time[j];
                 scorearr[j]._id = _id[j];
             }
-            console.log('44444', scorearr);
 
             res.render('stuscore', {
                 userId: req.session.userId,
@@ -140,7 +139,6 @@ exports.teahistroys = function(req, res) {
         examId = req.query.examId,
         index = req.query.index;
 
-    console.log(req.query);
     Score.find({ exam_id: examId }, function(err, mis) {
         if (err) {
             console.log('教师端查询学生分数详细情况报错');
@@ -163,29 +161,26 @@ exports.stuhistory = function(req, res) {
     var examId = req.query.examId;
     var index = req.query.index;
     var _id = req.query._id;
-    console.log(req.query);
     Score.find({ userId: userId, exam_id: examId, _id: _id }, function(err, mis) {
         if (err) {
             console.log('教师端查询学生分数详细情况报错');
             return;
         }
         if (mis.length > 1) {
-            console.log(mis[index].mistakes);
             res.json({
                 errcode: 1,
                 errmsg: '查看数据成功',
                 misdata: mis[index].mistakes
             });
         } else {
-            console.log(mis[0].mistakes);
             res.json({
                 errcode: 1,
                 errmsg: '查看数据成功',
                 misdata: mis[0].mistakes
-            })
+            });
         }
 
-    })
+    });
 };
 // 计算难易程度根据学生答题情况
 exports.jsuandiff = function(req, res) {
@@ -193,19 +188,15 @@ exports.jsuandiff = function(req, res) {
     var testid = [];
     TestDb.find(function(err, doc) {
         if (err) {
-            console.log('jsuandiff出错');
             return;
         }
-        // console.log(doc);
         async.forEach(doc, function(v) {
-            // console.log(v);
             testid.push(v._id);
         });
         // 所有学生答题的详情
         var mistakesarr = [];
         Score.find(function(err, data) {
             if (err) {
-                console.log('记录难易程度失败jsuandiff')
                 return;
             }
             async.forEach(data, function(v) {
@@ -255,17 +246,16 @@ exports.jsuandiff = function(req, res) {
                         }
                     }
                     titrue[j].index = index;
-                    // console.log('index',titrue);
                 }
             };
             for (var m = 0; m < titrue.length; m++) {
                 var pointer = parseInt(titrue[m].index) / parseInt(titrue[m].istrue.length);
                 if (pointer > 0.6) {
-                    titrue[m].diff = '很难'
+                    titrue[m].diff = '很难';
                 } else if (pointer > 0.3) {
-                    titrue[m].diff = '适中'
+                    titrue[m].diff = '适中';
                 } else {
-                    titrue[m].diff = '容易'
+                    titrue[m].diff = '容易';
                 }
                 // 记录新字段
                 var newtest = new TestDb({
@@ -279,7 +269,7 @@ exports.jsuandiff = function(req, res) {
                         return;
                     }
                     console.log(docs);
-                })
+                });
             }
         });
 

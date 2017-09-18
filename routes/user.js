@@ -42,7 +42,7 @@ exports.dologin = function(req, res) {
                             req.session.userId = doc[0]._id;
                             req.session.user = doc[0];
                             req.session.identity = 'student';
-                            req.session.save(); //保存一下修改后的Session					        	
+                            req.session.save(); //保存一下修改后的Session
                         });
                         // 学生状态  identity == doc[0].type 是判断是否是学生状态
                         Obj.find(function(err, docs) {

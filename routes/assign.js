@@ -22,6 +22,6 @@ exports.assigned = function(req, res) {
         res.json({
             errcode: 0,
             errmsg: '分配班级成功'
-        })
+        });
     });
-}
+};

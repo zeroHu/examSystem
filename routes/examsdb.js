@@ -32,7 +32,6 @@ exports.ftestId = function(req, res) {
         res.redirect('/login');
         return;
     }
-    // var objId = req.objId;
     var objId = req.body.objId,
         examname = req.body.examtitle,
         teacherId = req.body.teacherId,
@@ -41,7 +40,7 @@ exports.ftestId = function(req, res) {
         examtime = req.body.examtime;
     // { name: { $in: [ ‘jhon’, ‘eric’ ] } } 同时查询好介个
     if (shitinanyi == '混合') {
-        shitinanyi = { $in: ['简单', '中级', '稍难'] }
+        shitinanyi = { $in: ['简单', '中级', '稍难'] };
     }
     console.log('pppp', objId, examname, teacherId, shitinum);
     TestDb.find({ object: objId, difficult: shitinanyi }, function(err, doc) {
@@ -66,14 +65,14 @@ exports.ftestId = function(req, res) {
                 res.json({
                     errcode: -1,
                     errmsg: '自动组卷失败'
-                })
+                });
                 return;
             }
             res.json({
                 errcode: 0,
                 errmsg: '自动组卷成功'
             });
-        })
+        });
 
     });
 };
@@ -85,7 +84,6 @@ exports.ftestIds = function(req, res) {
     }
     var examcontent = req.body.testarrs;
     var examshoudongarr = [];
-    // var testnum = req.body.testlistnum;
     examshoudongarr = examcontent.split(',');
     var examdb = new examDb({
         title: req.body.examname,
@@ -101,7 +99,7 @@ exports.ftestIds = function(req, res) {
             res.json({
                 errcode: 0,
                 errmsg: '手动组卷失败'
-            })
+            });
             return;
         }
         res.json({
@@ -130,7 +128,7 @@ exports.stufinexams = function(req, res) {
         res.json({
             status: 200,
             examdoc: doc,
-        })
+        });
     });
 };
 // 查看试卷
@@ -150,7 +148,7 @@ exports.finexams = function(req, res) {
         res.json({
             status: 200,
             examdoc: doc,
-        })
+        });
     });
 };
 // 删除试卷操作
@@ -171,8 +169,8 @@ exports.examdel = function(req, res) {
             res.json({
                 status: 200,
                 mess: '试卷删除成功'
-            })
-        })
+            });
+        });
     }
 };
 // 开始考试路由
@@ -227,7 +225,6 @@ exports.submitexam = function(req, res) {
     	final_score : String,
     	mistakes : [{testdb_id:String,stu_key:String,isTrue:Boolean}],
     	createTime : {type:Date,default:Date.now}
-    	console.log(req.body);
     	{ studentId: '001',
     	  stuname: '001',
     	  examId: '56e4d8a9263a872e04399fb8',
@@ -265,7 +262,6 @@ exports.submitexam = function(req, res) {
             return;
         }
         var istrue = [];
-        console.log(thetrueanswer, stuanswer);
         for (var i = 0; i < thetrueanswer.length; i++) {
             if (stuanswer[i] == thetrueanswer[i]) {
                 istrue[i] = 1;
@@ -273,8 +269,6 @@ exports.submitexam = function(req, res) {
                 istrue[i] = 0;
             }
         };
-        console.log('istrue', istrue);
-        // mistakes : [{testdb_id:String,stu_key:String,isTrue:Boolean}],
         var mistakesarr = [];
         for (var n = 0; n < stuexamId.length; n++) {
             mistakesarr[n] = {};
@@ -285,11 +279,9 @@ exports.submitexam = function(req, res) {
             mistakesarr[m].stu_key = stuanswer[m];
             mistakesarr[m].isTrue = istrue[m];
         }
-        console.log('mistakes', mistakesarr);
         // 计算最后得分情况
         var final_score = 0;
         for (var j = 0; j < istrue.length; j++) {
-            console.log(istrue[j]);
             if (istrue[j] == 1) {
                 final_score += 1;
             }
