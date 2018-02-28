@@ -2,18 +2,21 @@ var mongoose = require('mongoose');
 var model = require('./model');
 var User = model.User;
 var Obj = model.Obj;
+
 // 查询权限
 exports.admin = function(req, res) {
-    if (req.session.userId != '56f4fe5dde9cd9e32cd8a917') {
-        res.redirect('/');
-        return;
-    }
+    // if (req.session.userId != '56f4fe5dde9cd9e32cd8a917') {
+    //     res.redirect('/');
+    //     return;
+    // }
     res.render('admin');
 };
+
 // 去登录页面
 exports.login = function(req, res) {
     res.render('login', { 'title': '登录界面' });
 };
+
 // 进行登录操作
 exports.dologin = function(req, res) {
     var ID = req.body.id;
@@ -74,10 +77,12 @@ exports.dologin = function(req, res) {
         }
     });
 };
+
 //注册页面
 exports.register = function(req, res) {
     res.render('register');
 };
+
 // 注册写入操作
 exports.post_register = function(req, res) {
     var user = new User({

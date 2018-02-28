@@ -31,7 +31,9 @@ var options = {
 // 此时req对象还没有session这个属性
 app.use(session({
     store: new RedisStore(options),
-    secret: 'express is powerful'
+    secret: 'express is powerful',
+    resave: true,
+    saveUninitialized: true
 }));
 
 // view engine setup
@@ -150,4 +152,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.listen(5000);
 module.exports = app;

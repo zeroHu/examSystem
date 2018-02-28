@@ -88,6 +88,7 @@
 					<div class="search">
 						<label>科目：</label>
 						<select name="object" id="object">
+							<option value=""></option>
 						</select>
 					</div>
 					<input type="button" class="up" value="提交" style="width:100px;height:50px;">
@@ -107,6 +108,8 @@
 							<th>操作</th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 				</table>
 				<div class="pagefenye">
 				</div>
@@ -124,17 +127,17 @@
 						</tr>
 					</thead>
 					<tbody class="ssbody">
-						{{!-- {{#each demo}}
-						<tr>
-							<td>{{_id}}</td>
-							<td>{{uid}} </td>
-							<td>{{title}} </td>
-							<td>{{content }}</td>
-							<td>{{createTime}}</td>
-							<td><a href="del?id={{_id}}">Delete</a> | <a href="modify?id={{_id}}">Update</a></td>
-						</tr>
-						{{/each}} --}}
-					</tbody>	
+						{{#each demo}}
+							<tr>
+								<td>{{_id}}</td>
+								<td>{{uid}} </td>
+								<td>{{title}} </td>
+								<td>{{content }}</td>
+								<td>{{createTime}}</td>
+								<td><a href="del?id={{_id}}">Delete</a> | <a href="modify?id={{_id}}">Update</a></td>
+							</tr>
+						{{/each}}
+					</tbody>
 				</table>
 			</div>
 
@@ -167,7 +170,6 @@
 				<tr>
 
 				</tr>
-				
 			</thead>
 			<tbody class="cont">
 

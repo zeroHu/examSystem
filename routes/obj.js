@@ -6,6 +6,7 @@ var async = require('async');
 // 连接出错提示
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+
 exports.insertobj = function(req, res) {
     Obj.find(function(err, objs) {
         if (err) {
