@@ -23,7 +23,7 @@ TIPS:**项目时间比较久了，也不再维护了。**
 3. node app.js
 
 #### 线上预览
-![线上预览地址](exam.zeroyh.cn)
+[线上预览地址](http://exam.zeroyh.cn)
 
 #### 线上环境测试号码
 ```
