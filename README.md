@@ -24,22 +24,22 @@ TIPS:**项目时间比较久了，也不再维护了。**
 3. node app.js
 ```
 #### 部分网站成果图：
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-1.jpg)
+![](http://static.zeroyh.cn/examsystem-1.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-2.jpg)
+![](http://static.zeroyh.cn/examsystem-2.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-3.jpg)
+![](http://static.zeroyh.cn/examsystem-3.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-4.jpg)
+![](http://static.zeroyh.cn/examsystem-4.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-5.jpg)
+![](http://static.zeroyh.cn/examsystem-5.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-6.jpg)
+![](http://static.zeroyh.cn/examsystem-6.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-7.jpg)
+![](http://static.zeroyh.cn/examsystem-7.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-8.jpg)
+![](http://static.zeroyh.cn/examsystem-8.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-9.jpg)
+![](http://static.zeroyh.cn/examsystem-9.jpg)
 
-![](http://oqt0cgoq9.bkt.clouddn.com/examsystem-10.jpg)
+![](http://static.zeroyh.cn/examsystem-10.jpg)
